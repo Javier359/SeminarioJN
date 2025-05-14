@@ -1,0 +1,17 @@
+ .navbar-logo {
+    max-height: 40px;
+    width: auto;
+    transition: transform 0.2s;
+  }
+  
+  .navbar {
+    padding: 0.5rem 1rem;
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(33,115,130,1) 1.4%, rgba(35,39,124,1) 90% );
+  }
+  
+  .nav-link {
+    color: #fff;
+    font-size: 1.2rem;
+    margin: 0 0.5rem;
+    font-weight: 500;
+  }
