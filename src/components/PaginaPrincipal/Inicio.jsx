@@ -1,16 +1,22 @@
-
-import { Button, Container } from 'react-bootstrap';
-import '../../styles/Principal.css';
-
+import { Button, Card } from "react-bootstrap";
+import "../../styles/Principal.css";
 
 const Inicio = () => {
-    return (
-        <Container className = 'my-4 text-center justifi-content-center d-flex flex-column' >
-            <h1>InterAI</h1>
-            <span>¿Listo para poner a prueba tus hablilidades? Responde pregutas como una entrevista real, recibe feedback inteligente y descubre como mejorar...</span>
-            <Button variant='success' className='m-3'>Comenzar</Button>
-        </Container>
-    );
+  return (
+   
+    <Card className="text-center container shadow-lg rounded-4 my-5">
+      <Card.Body className="card-fondo">
+        <Card.Title>JobLift</Card.Title>
+        <Card.Text>
+          ¿Listo para poner a prueba tus habilidades? Responde preguntas como
+          una entrevista real, recibe feedback inteligente y descubre cómo
+          mejorar...
+        </Card.Text>
+        <Button variant="success" className="w-auto mx-auto mt-3">
+          Comenzar
+        </Button>
+      </Card.Body>
+    </Card>
+  );
 };
-
 export default Inicio;
