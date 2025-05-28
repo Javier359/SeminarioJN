@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import Image from "react-bootstrap/Image";
 import Carousel from "react-bootstrap/Carousel";
-import "../../styles/como-funciona.css";
+import "../../styles/Como-funciona.css";
 
 function UncontrolledExample() {
   return (
