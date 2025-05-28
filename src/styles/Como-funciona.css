@@ -1,18 +1,23 @@
-
-
-#container-como-funciona {
-    height: 100%;
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-image: none; /* Quita el ícono SVG blanco */
 }
 
-.list-group-item {
-    text-align: left;
-    border-radius: 8px !important;
-    margin-bottom: 15px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+.carousel-control-prev-icon::after,
+.carousel-control-next-icon::after {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  padding: 5px;
 }
 
-#img-como-funciona {
-    max-height: 100%;
-    object-fit: contain;
+.carousel-control-prev-icon::after {
+  transform: rotate(135deg);
 }
 
+.carousel-control-next-icon::after {
+  transform: rotate(-45deg);
+}
