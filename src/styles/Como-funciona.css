@@ -1,4 +1,23 @@
-#container-como-funciona{
-    min-height: 100vh;
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-image: none; /* Quita el ícono SVG blanco */
 }
 
+.carousel-control-prev-icon::after,
+.carousel-control-next-icon::after {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  padding: 5px;
+}
+
+.carousel-control-prev-icon::after {
+  transform: rotate(135deg);
+}
+
+.carousel-control-next-icon::after {
+  transform: rotate(-45deg);
+}
