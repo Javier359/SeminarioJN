@@ -9,7 +9,7 @@ function UncontrolledExample() {
       <Carousel.Item>
         <Image
           src="/Imagenes-entrevistas/Portada-que-es-una-entrevista-2.jpg"
-          style={{ width: "100%", height: "500px", objectFit: "cover" }}
+          style={{ width: "100%", height: "600px", objectFit: "cover" }}
         />
         <Carousel.Caption className="text-dark bg-light bg-opacity-75">
           <h3>1.- Indicar el Puesto</h3>
@@ -21,8 +21,8 @@ function UncontrolledExample() {
       </Carousel.Item>
       <Carousel.Item>
         <Image
-          src="/Imagenes-entrevistas/Portada-tipos-de-entrevistas.jpg"
-          style={{ width: "100%", height: "500px", objectFit: "cover" }}
+          src="/Imagenes-entrevistas/Guia-entrevistas.jpg"
+          style={{ width: "100%", height: "600px", objectFit: "cover" }}
         />
         <Carousel.Caption className="text-dark bg-light bg-opacity-75">
           <h3>2.- Simulación Real:</h3>
@@ -35,7 +35,7 @@ function UncontrolledExample() {
       <Carousel.Item>
         <Image
           src="/Imagenes-entrevistas/entrevista-de-seleccion-1.jpg"
-          style={{ width: "100%", height: "500px", objectFit: "cover" }}
+          style={{ width: "100%", height: "600px", objectFit: "cover" }}
         />
         <Carousel.Caption className="text-dark bg-light bg-opacity-75">
           <h3>3.- Análisis:</h3>
@@ -43,6 +43,20 @@ function UncontrolledExample() {
             La inteligencia artificial analiza tus expresiones vocales (Tú voz
             en profundidad-Contenido de tu respuesta-Aspectos psicologicos). Es
             decir que no solo analiza lo que dices, sino también como lo dices.
+          </p>
+        </Carousel.Caption>
+      </Carousel.Item>
+      <Carousel.Item>
+        <Image
+          src="/Imagenes-entrevistas/entrevista-3.jpg"
+          style={{ width: "100%", height: "600px", objectFit: "cover" }}
+        />
+        <Carousel.Caption className="text-dark bg-light bg-opacity-75">
+          <h3>4.- Feedback:</h3>
+          <p>
+            Con todos los datos analizados y recopilados, la IA realiza un
+            reporte para que puedas analizar tus fortalezas y debilidades a la
+            hora de expresarte en una etrevista laboral.
           </p>
         </Carousel.Caption>
       </Carousel.Item>
