@@ -1,10 +1,11 @@
 import React from 'react';
+import Temporizador from './Temporizador';
 
 const PreguntasIndividuales = () => {
     return (
-        <div>
+        <Temporizador>
             
-        </div>
+        </Temporizador>
     );
 };
 
