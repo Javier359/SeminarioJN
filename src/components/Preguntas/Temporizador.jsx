@@ -2,57 +2,49 @@ import React, { useState, useEffect } from 'react';
 import { Card } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 
-export default function Temporizador() {
-  const [segundos, setSegundos] = useState(0);
-  const [activo, setActivo] = useState(false);
-  const [iniciado, setIniciado] = useState(false);
-  const limite = 20 * 60; // 20 minutos en segundos
+const Temporizador = () => {
+  const DURACION_TOTAL = 5 * 60; // 20 minutos en segundos
+  const [tiempoRestante, setTiempoRestante] = useState(DURACION_TOTAL);
 
   useEffect(() => {
-    let intervalo;
-    if (activo && segundos < limite) {
-      intervalo = setInterval(() => {
-        setSegundos(prev => prev + 1);
-      }, 1000);
-    } else if (segundos >= limite) {
-      setActivo(false);
+    const tiempoGuardado = localStorage.getItem("tiempoRestante");
+    const ultimaActualizacion = localStorage.getItem("ultimaActualizacion");
+
+    if (tiempoGuardado && ultimaActualizacion) {
+      const segundosPasados = Math.floor((Date.now() - parseInt(ultimaActualizacion)) / 1000);
+      const nuevoTiempo = Math.max(parseInt(tiempoGuardado) - segundosPasados, 0);
+      setTiempoRestante(nuevoTiempo);
     }
+
+    const intervalo = setInterval(() => {
+      setTiempoRestante(prev => {
+        if (prev <= 1) {
+          clearInterval(intervalo);
+          localStorage.removeItem("tiempoRestante");
+          localStorage.removeItem("ultimaActualizacion");
+          return 0;
+        }
+        const nuevoTiempo = prev - 1;
+        localStorage.setItem("tiempoRestante", nuevoTiempo);
+        localStorage.setItem("ultimaActualizacion", Date.now().toString());
+        return nuevoTiempo;
+      });
+    }, 1000);
+
     return () => clearInterval(intervalo);
-  }, [activo, segundos]);
+  }, []);
 
-  const iniciar = () => {
-    setActivo(true);
-    setIniciado(true);
-  };
+  const minutos = Math.floor(tiempoRestante / 60)
+    .toString()
+    .padStart(2, "0");
+  const segundos = (tiempoRestante % 60).toString().padStart(2, "0");
 
-  const reiniciar = () => {
-    setSegundos(0);
-    setActivo(false);
-    setIniciado(false);
-  };
-
-  const formatoTiempo = (seg) => {
-    const minutos = Math.floor(seg / 60);
-    const segundos = seg % 60;
-    return `${minutos.toString().padStart(2, '0')}:${segundos.toString().padStart(2, '0')}`;
-  };
-
-    return (
-     <div className="d-flex justify-content-center align-items-center rounded-4">
-      <Card className="text-center shadow">
-        <Card.Body>
-          <h2 className="mb-2">{formatoTiempo(segundos)}</h2>
-          <div className="d-flex justify-content-center gap-2">
-           <Button onClick={iniciar} variant="primary" disabled={iniciado}>
-              Iniciar
-            </Button>
-            <Button onClick={reiniciar} variant="danger">
-              Reiniciar
-            </Button>
-          </div>
-        </Card.Body>
-      </Card>
+  return (
+    <div className="fw-bold fs-4">
+      ⏱️ Tiempo restante: {minutos}:{segundos}
     </div>
-    );
+  );
 };
+
+export default Temporizador;
 

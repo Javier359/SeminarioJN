@@ -21,6 +21,7 @@ const PregutasPrincipal = () => {
             <Temporizador></Temporizador>
         </Card.Footer>
       </Card>
+      <PreguntasIndividuales />
     </Container>
   );
 };
